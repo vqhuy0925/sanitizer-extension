@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Code Sanitizer",
+  "version": "1.0",
+  "description": "Code Sanitizer before paste to AI",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Sanitize Code"
+  },
+  "permissions": [
+    "clipboardWrite",
+    "clipboardRead"
+  ]
+}

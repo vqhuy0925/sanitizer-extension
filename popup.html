@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        width: 350px;
+        padding: 10px;
+        font-family: Arial, sans-serif;
+      }
+      textarea {
+        width: 100%;
+        height: 150px;
+        margin-bottom: 10px;
+        padding: 5px;
+        box-sizing: border-box;
+      }
+      button {
+        width: 100%;
+        padding: 8px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      #status {
+        margin-top: 10px;
+        color: green;
+        font-size: 12px;
+        text-align: center;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>Paste code here:</h4>
+    <textarea id="codeInput" placeholder="Paste code here..."></textarea>
+
+    <details style="margin-bottom: 10px">
+      <summary
+        style="
+          cursor: pointer;
+          font-weight: bold;
+          font-size: 14px;
+          margin-bottom: 5px;
+          color: #333;
+        "
+      >
+        Settings: Sensitive Words
+      </summary>
+      <div
+        style="
+          font-size: 11px;
+          color: #555;
+          margin-bottom: 8px;
+          line-height: 1.4;
+        "
+      >
+        <strong>Guideline:</strong> Enter one mapping per line.<br />
+        Format: <code>SensitiveWord:Replacement</code><br />
+        Example: <code>AxonActive:CompanyX</code><br />
+        <em
+          >Note: Regex is supported. Words without a replacement will be masked
+          with <code>***</code>.</em
+        >
+      </div>
+      <textarea
+        id="rulesInput"
+        placeholder="SensitiveWord:ReplacementWord"
+        style="height: 100px"
+      ></textarea>
+      <button
+        id="saveRulesBtn"
+        style="background-color: #008cba; margin-bottom: 5px"
+      >
+        Save Mappings
+      </button>
+      <div
+        id="saveStatus"
+        style="color: green; font-size: 12px; text-align: center; display: none"
+      >
+        Mappings saved!
+      </div>
+    </details>
+
+    <button id="sanitizeBtn">Sanitize & Copy</button>
+    <div id="status">Sanitize and copy successfully!</div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
