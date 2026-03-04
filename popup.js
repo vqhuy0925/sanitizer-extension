@@ -75,9 +75,14 @@ document.getElementById("sanitizeBtn").addEventListener("click", () => {
   }
 
   let safeCode = inputCode;
-  for (const [sensitiveWord, safeWord] of Object.entries(
-    currentSensitiveWords,
-  )) {
+
+  // Sort keys by length descending so longer, more specific rules are evaluated first.
+  const sortedKeys = Object.keys(currentSensitiveWords).sort(
+    (a, b) => b.length - a.length,
+  );
+
+  for (const sensitiveWord of sortedKeys) {
+    const safeWord = currentSensitiveWords[sensitiveWord];
     try {
       const regex = new RegExp(sensitiveWord, "gi");
       safeCode = safeCode.replace(regex, safeWord);
